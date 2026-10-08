@@ -3,9 +3,17 @@ import json
 pokedex = open("./pokedex.json", encoding="utf8")
 ## create variable "data" that represents the enitre pokedex list
 data = json.load(pokedex)
-print(data[0])
+print(data[0]) 
 
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
+
+def name(x,y):
+    for i in range(x,y):
+        print(data[i])
+        str.split(data)
+name(1,809)
+
+
 
 # Add a language choice feature and print the pokemons name based on the user input
 
