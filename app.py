@@ -9,10 +9,8 @@ print(data[0])
 
 def name(x,y):
     for i in range(x,y):
-        print(data[i])
-        str.split(data)
-name(1,809)
-
+        print(data[i]["name"]["english"])
+name(0,len(data))
 
 
 # Add a language choice feature and print the pokemons name based on the user input
