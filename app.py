@@ -29,20 +29,25 @@ def language(x,y):
 
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
 def typelist(x,y):
-    z = input("What type of pokemon?").lower
-    if z in (data["type"]):
+    z = input("What type of pokemon?").lower()
+
+#    for i in range(x,y):
+  #    if z.lower() in data[i]["type"]:
+ #           print(data[i]["name"]["english"]) 
+    
+    
+    for z in ["type"] in data:
         print("Printing All", z, "Types")
     else:
         print("Thats not a type")
         return
-
-    for i in range(x,y):
-        if z.lower in data[i]["type"]:
-            print(data[i]["name"]["english"])
 typelist(0,len(data))
 
 
- 
+
+
+
+
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
 """ o = input("What is the name of the pokemon") """
