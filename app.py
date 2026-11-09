@@ -34,17 +34,27 @@ def typelist(x,y):
     for i in range(x,y):
         if z in data[i]["type"]:
             matching.append(data[i]["name"]["english"])
-        else:
-         print("Thats not a type")
-
-
-    for i in range(x,y):  
+        
         if z.lower() in data[i]["type"]:
            print(data[i]["name"]["english"]) 
+
+        else: 
+            print("No pokemon found!")
 typelist(0,len(data))
 
 
 
+ matches = []
+    for i in range(x, y):
+        if z in [pokemon_type.lower() for pokemon_type in data[i]["type"]]:
+            matches.append(data[i]["name"]["english"])
+
+    if matches:
+        print("Printing All", z, "Types")
+        for pokemon_name in matches:
+            print(pokemon_name)
+    else:
+        print("No pokemon found of that type")
 
 
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
