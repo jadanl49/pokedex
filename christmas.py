@@ -1,14 +1,20 @@
 
 def counting(n, values):
     treestreak = 1
-    values = [6,3,1,5]
-    for i in values[:n]:
-        if values[i] > 1:
+    current_dec = 1
+    best_inc= 0 
+    best_dec = 0
+    for i in range(n-1):
+        if h[i] > h[i+1]:
+            current_dec += 1
+            if current_dec > best_dec:
+                best_dec = current_dec
+        elif h[i] < h[i+1]:
             treestreak += 1
-            print(treestreak)
-        if i < values[i]:
-            treestreak = 0
-            print(treestreak)
-            break
+            if treestreak > best_inc:
+                best_inc = treestreak
+        else: 
+            treestreak = 1
+            current_dec = 1
+h = [1,3,5,2]
             
-print(counting(4, [6, 3, 1, 5]))
