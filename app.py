@@ -32,34 +32,24 @@ def typelist(x,y):
     z = input("What type of pokemon?").lower()
     matching = []
     for i in range(x,y):
-        if z in data[i]["type"]:
+        if z in [typefinder.lower() for typefinder in data[i]["type"]]:
             matching.append(data[i]["name"]["english"])
         
-        if z.lower() in data[i]["type"]:
-           print(data[i]["name"]["english"]) 
+        if matching: 
+            print("Printing all", z , "Types")
+            for pokemon_names in matching:
+                print(pokemon_names)
 
         else: 
             print("No pokemon found!")
-typelist(0,len(data))
+""" typelist(0,len(data)) """
 
 
-
- matches = []
-    for i in range(x, y):
-        if z in [pokemon_type.lower() for pokemon_type in data[i]["type"]]:
-            matches.append(data[i]["name"]["english"])
-
-    if matches:
-        print("Printing All", z, "Types")
-        for pokemon_name in matches:
-            print(pokemon_name)
-    else:
-        print("No pokemon found of that type")
 
 
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
-""" o = input("What is the name of the pokemon") """
+o = input("What is the name of the pokemon") 
 searchlist = []
 def pokemonfinder(o):
     findcount = 0
@@ -72,6 +62,6 @@ def pokemonfinder(o):
         print(f"Pokemon found: {findcount}")
     else:
         print("No pokemon were found.")
-""" pokemonfinder(o) """
+pokemonfinder(o)
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
