@@ -69,22 +69,34 @@ def pokemonfinder(o):
 """ pokemonfinder(o)  """
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
-o = input("Which pokemon would you like to learn about?")
-moveset = []
-pokemon = []
-def movefinder(o):
-    movefind = 0
-    for i in range(len(moves)):
-        if o.lower() in data[i]["name"]["english"].lower():
-            pokemon.append(data[i]["type"])
-            print(pokemon)
-        if pokemon() in moves[i]["type"].lower():
-            print(moves[i]["type"]["english"]) 
-            movefind+=1 
-            moveset.append(moves["type"])
-            
-    if movefind > 1:
-        print(f"Moves found: {moveset}")
+def movefinder(search_name):
+    matching_pokemon = []
+    for pokemon in data:
+        if search_name.lower() in pokemon["name"]["english"].lower():
+            matching_pokemon.append(pokemon)
+
+    if not matching_pokemon:
+        print("No pokemon were found.")
+        return
+
+    pokemon_types = set()
+    for pokemon in matching_pokemon:
+        for poke_type in pokemon.get("type", []):
+            pokemon_types.add(str(poke_type).lower())
+
+    moveset = []
+    for move in moves:
+        move_type = str(move.get("type", "")).lower()
+        if move_type in pokemon_types:
+            move_name = move.get("name", {})
+            if isinstance(move_name, dict):
+                move_name = move_name.get("english")
+            moveset.append(str(move_name))
+
+    if moveset:
+        print(f"Moves found for {search_name}:")
+        for move_name in sorted(set(moveset)):
+            print(move_name)
     else:
         print("No moves were found!")
 movefinder(o)
