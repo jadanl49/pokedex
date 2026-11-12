@@ -51,7 +51,7 @@ def typelist(x,y):
 
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
-""" o = input("What is the name of the pokemon")  """
+""" o = input("What is the name of the pokemon")   """
 searchlist = []
 def pokemonfinder(o):
 
@@ -66,7 +66,7 @@ def pokemonfinder(o):
         print(f"Pokemon found: {findcount}")
     else:
         print("No pokemon were found.")
-""" pokemonfinder(o) """
+""" pokemonfinder(o)  """
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
 o = input("Which pokemon would you like to learn about?")
@@ -80,17 +80,11 @@ def movefinder(o):
             print(pokemon)
         if pokemon() in moves[i]["type"].lower():
             print(moves[i]["type"]["english"]) 
-            movefind+=1
+            movefind+=1 
             moveset.append(moves["type"])
             
     if movefind > 1:
         print(f"Moves found: {moveset}")
     else:
         print("No moves were found!")
-movefinder()
-
-
-
-
-
-
+movefinder(o)
