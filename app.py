@@ -44,7 +44,8 @@ def typelist(x,y):
 
         else: 
             print("No pokemon found!")
-""" typelist(0,len(data)) """
+            return
+typelist(0,len(data)) 
 
 
 
@@ -69,7 +70,7 @@ def pokemonfinder(o):
 """ pokemonfinder(o)  """
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
-o = input("Which pokemon would you like to learn about?")
+""" o = input("Which pokemon would you like to learn about?")
 
 def movefinder(o):
     matching_pokemon = []
@@ -93,3 +94,4 @@ def movefinder(o):
         print("No moves were found!")
 movefinder(o)
 
+ """
