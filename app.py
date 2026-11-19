@@ -70,28 +70,29 @@ def pokemonfinder(o):
 """ pokemonfinder(o)  """
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
-""" o = input("Which pokemon would you like to learn about?")
-
+o = input("Which pokemon would you like to learn about?")
 def movefinder(o):
     matching_pokemon = []
     movefind = 0
     for pokemon in data:
-        if o.lower() in pokemon["name"]["english"].lower():
+        if o.lower() == pokemon["name"]["english"].lower():
             matching_pokemon.append(pokemon)
-        if not matching_pokemon:
-            print("No pokemon were found!")
-            return
-         
+    if not matching_pokemon:
+        print("No pokemon were found!")
+        return
 
-        moveset = []
+    moveset = []
+    for pokemon in matching_pokemon:
+        for move in moves:
+            if move["type"] in pokemon["type"]:
+                moveset.append(move["ename"])
+                movefind += 1
 
-        if moveset:
-            print(f"Moves found for {o}:")
-        
-    if movefind > 1:
-        print(f"Moves found: {moveset}")
+    if movefind > 0:
+        print(f"Moves found for {o}:")
+        for move_name in moveset:
+            print(move_name)
+        print(f"Moves found: {movefind}")
     else:
         print("No moves were found!")
 movefinder(o)
-
- """
